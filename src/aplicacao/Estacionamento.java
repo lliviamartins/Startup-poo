@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import dominio.Veiculo;
+import Veiculo;
 
 public class Estacionamento {
 

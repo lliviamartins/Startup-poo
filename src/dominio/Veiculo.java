@@ -1,41 +1,51 @@
-package dominio;
-
 public abstract class Veiculo {
 
     private final Placa placa;
-    private final String modelo;
-    private final String cor;
+    private Vaga vagaAtual;
 
-    public Veiculo(Placa placa, String modelo, String cor) {
+    protected Veiculo(Placa placa) {
         if (placa == null) {
-            throw new IllegalArgumentException("A placa é obrigatória.");
+            throw new IllegalArgumentException("O veículo precisa de uma placa.");
         }
-
-        if (modelo == null || modelo.isBlank()) {
-            throw new IllegalArgumentException("O modelo é obrigatório.");
-        }
-
-        if (cor == null || cor.isBlank()) {
-            throw new IllegalArgumentException("A cor é obrigatória.");
-        }
-
         this.placa = placa;
-        this.modelo = modelo;
-        this.cor = cor;
     }
 
-    public Placa getPlaca() {
+    // Ponto de variação: cada subclasse define as vagas compatíveis (RN01)
+    public abstract boolean aceitaVaga(TipoVaga tipo);
+
+    // Vaga que o veículo prefere (usada na escolha automática)
+    public abstract TipoVaga tipoPreferencial();
+
+    public abstract String nomeDoTipo();
+
+    // Método concreto que usa o método abstrato
+    public boolean podeOcupar(Vaga vaga) {
+        return aceitaVaga(vaga.tipo());
+    }
+
+    // Registra que o veículo foi estacionado numa vaga (RN02)
+    public void estacionado(Vaga vaga) {
+        if (vagaAtual != null) {
+            throw new VeiculoJaEstacionadoException(
+                "O veículo " + placa + " já está estacionado na vaga " + vagaAtual.numero() + ".");
+        }
+        vagaAtual = vaga;
+    }
+
+    public void saiuDaVaga() {
+        vagaAtual = null;
+    }
+
+    public boolean estaEstacionado() {
+        return vagaAtual != null;
+    }
+
+    public Placa placa() {
         return placa;
     }
 
-    public String getModelo() {
-        return modelo;
+    @Override
+    public String toString() {
+        return nomeDoTipo() + " " + placa;
     }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public abstract String getTipo();
-
 }
