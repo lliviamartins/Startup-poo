@@ -73,17 +73,15 @@ docs/
 
 ## Desafios Vá Além escolhidos
 
-Apresentaremos **D, E, F e H**. B e C também estão prontos e ficam como reserva.
+Apresentaremos **B, D, E e F**.
 Arquivo e linha de cada um estão em `docs/requisitos.md`.
 
 | Desafio | Onde está |
 |---|---|
+| **B · Persistência** | `aplicacao/RepositorioCsv.java` (CSV, try-with-resources, `IOException`). |
 | **D · Relatórios com Streams** | `aplicacao/RelatoriosGerenciais.java`: 6 relatórios com `filter`, `map`, `sorted`, `Collectors.groupingBy` (faturamento por tipo de cobrança, ocupação por tipo de vaga, ranking por valor gasto, energia por elétrico, permanência média, mensalistas vencidos). Menu opção 9. |
 | **E · Eventos de domínio** | `dominio/Notificador.java` (interface), `Estacionamento.adicionarNotificador()` e `avisar()`; ouvintes `app/NotificadorConsole.java` e `aplicacao/RegistroDeEventos.java`. Eventos: cadastro, plano, quitação, entrada, troca de vaga, recarga, pagamento e saída. Menu opção 10. |
 | **F · Arquitetura em camadas** | Pacotes `dominio`, `aplicacao` e `app`. O domínio não importa `Scanner` nem usa `System.out`. Ver ADR-0003. |
-| **H · Entrevista com especialista** | `docs/pdr/PDR-0001-entrevista-especialista.md` — **entrevista simulada com IA (declarado)**, com regras aceitas (RN07\*–RN11\*) e rejeitadas. |
-| B · Persistência (reserva) | `aplicacao/RepositorioCsv.java` (CSV, try-with-resources, `IOException`). |
-| C · Strategy (reserva) | `dominio/PoliticaDeTarifa.java` com `TarifaComum` e `TarifaMensalista` escolhidas na entrada. Ver ADR-0002. |
 
 ## Uso de IA generativa
 
