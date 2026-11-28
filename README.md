@@ -85,6 +85,6 @@ Arquivo e linha de cada um estão em `docs/requisitos.md`.
 
 ## Uso de IA generativa
 
-Parte do código, da documentação e a entrevista do desafio H foram produzidas com apoio de IA generativa (Claude).
+Parte do código, da documentação foram produzidos com apoio de IA generativa (Claude).
 Cada integrante declara no relatório individual em quais trechos usou, para quê e o que entendeu e ajustou.
 
